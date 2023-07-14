@@ -1,11 +1,11 @@
-# WT32-SC01_TripMaster
+# ESP32-2432S028R_TripMaster
 Rally tripmaster based on the ESP32-2432S028R development board and the Beitian BS-280 GPS module
 
-![WT32-SC01_TripMaster](https://i.imgur.com/ztwyEtg.jpg)
+![ESP32-2432S028R_TripMaster](https://imgur.com/IejWvIF)
 
 # Setup
 You will need to dowload the TFT_eSPI library, add the ESP32-2432S028R-User_Setup.h to the TFT_eSPI\User_Setups folder  
-Then modify the TFT_eSPI\User_Setup_Select.h file to include the user setup in order to make the screen in the WT32-SC01 development board work:  
+Then modify the TFT_eSPI\User_Setup_Select.h file to include the user setup in order to make the screen in the ESP32-2432S028R development board work:  
 #include <User_Setups/ESP32-2432S028R-User_Setup.h>  
   
 You will need TinyGPS++ library, no modifications required.
