@@ -1,7 +1,7 @@
 # ESP32-2432S028R_TripMaster
 Rally tripmaster based on the ESP32-2432S028R development board and the Beitian BS-280 GPS module
 
-![ESP32-2432S028R_TripMaster](https://imgur.com/IejWvIF)
+![ESP32-2432S028R_TripMaster](https://i.imgur.com/IejWvIF.jpg)
 
 # Setup
 You will need to dowload the TFT_eSPI library, add the ESP32-2432S028R-User_Setup.h to the TFT_eSPI\User_Setups folder  
