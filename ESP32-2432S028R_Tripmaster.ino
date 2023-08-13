@@ -9,9 +9,8 @@
 #include "sat.h"
 #include "splash.h"
 
-#define GPS_BAUD 9600           // GPS module baud rate. GP3906 defaults to 9600.
-#define RXD2 20                 // Connect GPS Tx Here
-#define TXD2 16                 // Not used
+#define GPS_BAUD 38400           // GPS module baud rate. GP3906 defaults to 9600.
+#define RXD2 35                // Connect GPS Tx Here
 #define PIN_INCREASE_BTN 27     // Connect trip increase button here
 #define PIN_DECREASE_BTN 22     // Connect trip decrease button here
 #define EEPROM_SIZE 5           // Memory size to store user params and trip
@@ -54,8 +53,6 @@ const char* FILENAME = "/data.txt";
 */
 void initScreen() {
   tft.init();
-  pinMode(TFT_BL, OUTPUT);
-  digitalWrite(TFT_BL, 128);
   tft.setTextColor(FG_COLOR, BG_COLOR);
   tft.setRotation(1);
   //tft.setSwapBytes(true);
@@ -70,6 +67,7 @@ void bgGPS() {
 
   tft.drawString("Trip", 5, 8, 4);
   tft.drawString("CAP", 10, 140, 4);
+  tft.drawString("SPD", 147, 140, 4);
 
   tft.drawLine(139, 130, 139, 240, FG_COLOR);
   tft.drawLine(140, 130, 140, 240, FG_COLOR);
@@ -172,8 +170,13 @@ void handleCfgMenu() {
 void setup()
 {
   // Serial interfaces to read GPS information
-  Serial2.begin(9600, SERIAL_8N1, RXD2, TXD2);
+  Serial2.begin(GPS_BAUD, SERIAL_8N1, RXD2, -1); 
   SerialMonitor.begin(9600);
+
+  // Screen initialization
+  initScreen();
+  tft.pushImage(0, 0, 320, 240, splash);
+  delay(800);
 
   setupSD();
   tripPartial = readTripSD();
@@ -183,10 +186,7 @@ void setup()
   pinMode(PIN_DECREASE_BTN, INPUT_PULLUP);
   pinMode(PIN_INCREASE_BTN, INPUT_PULLUP);
 
-  // Screen initialization
-  initScreen();
-  tft.pushImage(0, 0, 320, 240, splash);
-  delay(800);
+
 
   // Check if during boot the increase button is pressed
   int increaseBtnVal = digitalRead(PIN_INCREASE_BTN);
@@ -203,8 +203,10 @@ void setup()
 
 void setupSD(){
   if (!SD.begin(SD_CS)) {
+    tft.drawString("NO MICRO SD FOUND!", 10, 30, 4);
     while (1) delay(0);
   }
+  tft.fillScreen(BG_COLOR);
 
   if (!SD.exists(FILENAME)) {
    File fileSD  = SD.open(FILENAME, FILE_WRITE);
@@ -335,11 +337,14 @@ void handleButtons() {
   else if (decreaseBtnVal == LOW && tripPartial > 0.01) {
     if (holdClick > 40) {
       tripPartial -= 1;
+      writeTripSD(tripPartial);
     }
     else if (holdClick > 40) {
       tripPartial -= 0.1;
+      writeTripSD(tripPartial);
     } else {
       tripPartial -= 0.01;
+      writeTripSD(tripPartial);
     }
     holdClick ++;
   }
@@ -347,11 +352,14 @@ void handleButtons() {
   else if (increaseBtnVal == LOW) {
     if (holdClick > 80) {
       tripPartial += 1;
+      writeTripSD(tripPartial);
     }
     else if (holdClick > 40) {
       tripPartial += 0.1;
+      writeTripSD(tripPartial);
     } else {
       tripPartial += 0.01;
+      writeTripSD(tripPartial);
     }
     holdClick ++;
   }
@@ -428,7 +436,7 @@ void printGPSInfo()
   if (gpsPrecision > 500) {
     tft.setTextColor(TFT_RED, BG_COLOR);
   }
-  //tft.drawString("  " + String(tinyGPS.satellites.value()), 436 , 6, 2);
+  tft.drawString("  " + String(tinyGPS.satellites.value()), 279 , 6, 2);
   // GPS signal quality (red if the quality is low)
   if(gpsPrecision >= 999){
     tft.drawString("NO SIGNAL",  145 , 225, 2);
