@@ -16,8 +16,8 @@ To flash the module you'll need to add ESP32 support to the Arduino IDE, and sel
   
 You might also need the [CP210x Universal Windows Driver](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers) if you can't reach the COM port  
   
-# Documentation
-PENDING
+# Documentation and examples for this board
+[Not my repo but](http://pan.jczn1688.com/directlink/1/ESP32%20module/2.8inch_ESP32-2432S028R.rar)
   
 # Hardware
 Here's the hardware I've used:  
@@ -29,7 +29,7 @@ Here's the hardware I've used:
 - 3 Micro JST connectors
 
 # Wiring diagram
-PENDING
+![](https://i.imgur.com/t1iq9gP.png)
 
 # Adding a splash image
 Create your PNG image (480x320px), and convert it to .c file in this website http://www.rinkydinkelectronics.com/t_imageconverter565.php
