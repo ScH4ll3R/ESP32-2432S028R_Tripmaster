@@ -18,8 +18,7 @@
 #define screenMemPos 3          // Position in memory to store the user defined screen rotation
 #define screenBGMemPos 1        // Position in memory to store the user defined screen background color
 
-#define SerialMonitor Serial
-
+HardwareSerial gpsSerial(2);
 TFT_eSPI tft = TFT_eSPI();
 TinyGPSPlus tinyGPS;
 
@@ -170,8 +169,7 @@ void handleCfgMenu() {
 void setup()
 {
   // Serial interfaces to read GPS information
-  Serial2.begin(GPS_BAUD, SERIAL_8N1, RXD2, -1); 
-  SerialMonitor.begin(9600);
+  gpsSerial.begin(38400, SERIAL_8N1, 35, -1);  // Configurar Serial2 en el pin 35
 
   // Screen initialization
   initScreen();
@@ -454,8 +452,8 @@ static void smartDelay(unsigned long ms)
   unsigned long start = millis();
   do
   {
-    while (Serial2.available())
-      tinyGPS.encode(Serial2.read());
+    while (gpsSerial.available())
+      tinyGPS.encode(gpsSerial.read());
   } while (millis() - start < ms);
 }
 
