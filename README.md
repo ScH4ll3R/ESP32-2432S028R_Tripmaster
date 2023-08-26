@@ -30,6 +30,7 @@ Here's the hardware I've used:
 
 # Wiring diagram
 ![](https://i.imgur.com/t1iq9gP.png)
+![](https://i.imgur.com/CNndlpF.png)
 
 # Adding a splash image
 Create your PNG image (480x320px), and convert it to .c file in this website http://www.rinkydinkelectronics.com/t_imageconverter565.php
