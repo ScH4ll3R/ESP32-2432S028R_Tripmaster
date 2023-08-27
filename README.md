@@ -24,9 +24,10 @@ Here's the hardware I've used:
 - ESP32-2432S028R development board  
 - Beitian BS-280 GPS module  
 - Any kind of buttons x2 (I've used a motorcycle handlebar switch module)  
-- 115 x 85 x 35 mm Transparent case (There's some space left)  
+- 100 x 68 x 50 mm case (I've used just the transparent lid and 3D printed the back part to make it thinner)
 - 2 GX16-5pin connectors for the buttons and the USB connection
 - 3 Micro JST connectors
+- 1 micro SD card
 
 # Wiring diagram
 ![](https://i.imgur.com/t1iq9gP.png)
