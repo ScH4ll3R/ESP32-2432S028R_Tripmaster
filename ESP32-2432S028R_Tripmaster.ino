@@ -349,7 +349,11 @@ void handleButtons() {
       }
       writeTripSD(tripPartial);
     } else {
-      tripPartial -= 0.01;
+      if(tripPartial - 0.1 <= 0){
+         tripPartial = 0;
+      } else {
+         tripPartial -= 0.1;
+      }
       writeTripSD(tripPartial);
     }
     holdClick ++;
