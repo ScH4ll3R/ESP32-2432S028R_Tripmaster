@@ -332,13 +332,21 @@ void handleButtons() {
 
   }
   // Decrease values
-  else if (decreaseBtnVal == LOW && tripPartial > 0.01) {
+  else if (decreaseBtnVal == LOW && tripPartial >= 0.01) {
     if (holdClick > 40) {
-      tripPartial -= 1;
+      if(tripPartial - 1 <= 0){
+         tripPartial = 0;
+      } else {
+         tripPartial -= 1;
+      }
       writeTripSD(tripPartial);
     }
     else if (holdClick > 40) {
-      tripPartial -= 0.1;
+      if(tripPartial - 0.1 <= 0){
+         tripPartial = 0;
+      } else {
+         tripPartial -= 0.1;
+      }
       writeTripSD(tripPartial);
     } else {
       tripPartial -= 0.01;
