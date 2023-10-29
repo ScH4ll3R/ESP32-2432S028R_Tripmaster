@@ -1,5 +1,5 @@
 # ESP32-2432S028R_TripMaster
-Rally tripmaster based on the ESP32-2432S028R development board and the Beitian BS-280 GPS module
+Rally tripmaster based on the ESP32-2432S028R development board and the Beitian BE-280 GPS module
 
 ![ESP32-2432S028R_TripMaster](https://i.imgur.com/IejWvIF.jpg)
 
@@ -22,10 +22,10 @@ You might also need the [CP210x Universal Windows Driver](https://www.silabs.com
 # Hardware
 Here's the hardware I've used:  
 - ESP32-2432S028R development board  
-- Beitian BS-280 GPS module  
+- Beitian BE-280 GPS module  
 - Any kind of buttons x2 (I've used a motorcycle handlebar switch module)  
 - 100 x 68 x 50 mm case (I've used just the transparent lid and 3D printed the back part to make it thinner)
-- 2 GX16-5pin connectors for the buttons and the USB connection
+- 1 GX16-5pin connectors for the buttons and the USB connection
 - 3 Micro JST connectors
 - 1 micro SD card
 
