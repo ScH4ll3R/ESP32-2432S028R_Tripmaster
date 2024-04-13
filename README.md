@@ -1,10 +1,10 @@
 # ESP32-2432S028R_TripMaster
 Rally tripmaster based on the ESP32-2432S028R development board and the Beitian BE-280 GPS module
 
-![ESP32-2432S028R_TripMaster](https://i.imgur.com/IejWvIF.jpg)
+![ESP32-2432S028R_TripMaster](https://i.imgur.com/oqwur4x.png)
 
 # Setup
-You will need to dowload the TFT_eSPI library, add the ESP32-2432S028R-User_Setup.h to the TFT_eSPI\User_Setups folder  
+You will need to download the TFT_eSPI library, add the ESP32-2432S028R-User_Setup.h to the TFT_eSPI\User_Setups folder  
 Then modify the TFT_eSPI\User_Setup_Select.h file to include the user setup in order to make the screen in the ESP32-2432S028R development board work:  
 #include <User_Setups/ESP32-2432S028R-User_Setup.h>  
   
@@ -22,7 +22,7 @@ You might also need the [CP210x Universal Windows Driver](https://www.silabs.com
 # Hardware
 Here's the hardware I've used:  
 - ESP32-2432S028R development board  
-- Beitian BE-280 GPS module  
+- GY-NEO6MV2 NEO-6M 
 - Any kind of buttons x2 (I've used a motorcycle handlebar switch module)  
 - 100 x 68 x 50 mm case (I've used just the transparent lid and 3D printed the back part to make it thinner)
 - 1 GX16-5pin connectors for the buttons and the USB connection
