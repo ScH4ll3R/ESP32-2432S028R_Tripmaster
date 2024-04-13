@@ -25,7 +25,7 @@ Here's the hardware I've used:
 - GY-NEO6MV2 NEO-6M 
 - Any kind of buttons x2 (I've used a motorcycle handlebar switch module)  
 - 100 x 68 x 50 mm case (I've used just the transparent lid and 3D printed the back part to make it thinner)
-- 1 GX16-5pin connectors for the buttons and the USB connection
+- 1 GX16-4pin (i used 5 pin) connector for the buttons and the USB connection
 - 3 Micro JST connectors
 - 1 micro SD card
 
