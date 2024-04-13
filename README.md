@@ -30,7 +30,7 @@ Here's the hardware I've used:
 - 1 micro SD card
 
 # Wiring diagram
-![](https://i.imgur.com/t1iq9gP.png)
+![](https://i.imgur.com/dfH4y3u.png)
 ![](https://i.imgur.com/CNndlpF.png)
 
 # Adding a splash image
